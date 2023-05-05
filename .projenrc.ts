@@ -12,6 +12,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   repositoryUrl: 'git@github.com:mbonig/cdk-logical-id-mapper.git',
   releaseToNpm: true,
   npmAccess: NpmAccess.PUBLIC,
+  keywords: ['aws-cdk'],
 
   // deps: [],                /* Runtime dependencies of this module. */
   // description: undefined,  /* The description is just a string that helps people understand the purpose of the package. */

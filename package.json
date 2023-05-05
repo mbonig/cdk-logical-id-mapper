@@ -62,6 +62,7 @@
     "constructs": "^10.0.5"
   },
   "keywords": [
+    "aws-cdk",
     "cdk"
   ],
   "main": "lib/index.js",
