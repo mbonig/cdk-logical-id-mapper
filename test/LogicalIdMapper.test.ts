@@ -9,8 +9,11 @@ test('Maps Ids', () => {
   const app = new App();
   const stack = new Stack(app, 'TestStack');
   new Topic(stack, 'SomeTopic');
+
   Aspects.of(stack).add(new LogicalIdMapper({
-    SomeTopicDB89918F: 'MyTopic',
+    map: {
+      SomeTopicDB89918F: 'MyTopic',
+    },
   }));
 
   // act
