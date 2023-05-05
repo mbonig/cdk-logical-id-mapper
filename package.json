@@ -1,5 +1,5 @@
 {
-  "name": "cdk-logical-id-mapper",
+  "name": "@matthewbonig/cdk-logical-id-mapper",
   "repository": {
     "type": "git",
     "url": "git@github.com:mbonig/cdk-logical-id-mapper.git"
@@ -38,7 +38,7 @@
     "@types/node": "^16",
     "@typescript-eslint/eslint-plugin": "^5",
     "@typescript-eslint/parser": "^5",
-    "aws-cdk-lib": "2.1.0",
+    "aws-cdk-lib": "2.4.0",
     "constructs": "10.0.5",
     "eslint": "^8",
     "eslint-import-resolver-node": "^0.3.7",
@@ -58,7 +58,7 @@
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
-    "aws-cdk-lib": "^2.1.0",
+    "aws-cdk-lib": "^2.4.0",
     "constructs": "^10.0.5"
   },
   "keywords": [
