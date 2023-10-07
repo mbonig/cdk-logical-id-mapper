@@ -31,11 +31,16 @@ export class LogicalIdMapper implements IAspect {
   }
 
   visit(node: IConstruct): void {
-    const currentLogicalId = Stack.of(node).getLogicalId(node as CfnElement);
-    // is there a map for this logicalId?
-    if (!!this.props.map[currentLogicalId]) {
-      // if we're on a L1 resource, try to do the override directly
-      if ((node as CfnResource).overrideLogicalId) return (node as CfnResource).overrideLogicalId(this.props.map[currentLogicalId]);
+    try {
+      const currentLogicalId = Stack.of(node).getLogicalId(node as CfnElement);
+      // is there a map for this logicalId?
+      if (!!this.props.map[currentLogicalId]) {
+        // if we're on a L1 resource, try to do the override directly
+        if ((node as CfnResource).overrideLogicalId) return (node as CfnResource).overrideLogicalId(this.props.map[currentLogicalId]);
+      }
+    } catch {
+      // This construct is not in the scope of a Stack, maybe because the Aspect was applied to a Stage
+      return;
     }
   }
 }
