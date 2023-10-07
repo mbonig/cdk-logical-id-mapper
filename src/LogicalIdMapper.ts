@@ -38,9 +38,14 @@ export class LogicalIdMapper implements IAspect {
         // if we're on a L1 resource, try to do the override directly
         if ((node as CfnResource).overrideLogicalId) return (node as CfnResource).overrideLogicalId(this.props.map[currentLogicalId]);
       }
-    } catch {
-      // This construct is not in the scope of a Stack, maybe because the Aspect was applied to a Stage
-      return;
+    } catch (error) {
+      if (error instanceof Error) {
+        if (error.message.endsWith('should be created in the scope of a Stack, but no Stack found')) {
+          // This construct is not in the scope of a Stack, maybe because the Aspect was applied to a Stage
+          return;
+        }
+      }
+      throw error;
     }
   }
 }
