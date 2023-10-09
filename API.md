@@ -38,6 +38,20 @@ Aspects.of(stack).add(new LogicalIdMapper({
 }));
 ```
 
+For cdk-pipeline stages:
+```typescript
+
+const stage = new Stage(this, 'MyPipelineStage');
+
+Aspects.of(stage).add(new LogicalIdMapper({
+  map: {
+    SomeTopicDB89918F: 'MyTopic', // rename the SomeTopicDB89918F logical ID to MyTopic
+  }
+}));
+
+pipeline.addStage(stage);
+```
+
 ## Contributions.
 
 If you have [Issues](https://github.com/mbonig/cdk-logical-id-mapper), [yo, I'll solve it](https://www.youtube.com/watch?v=rog8ou-ZepE).
